@@ -1,0 +1,28 @@
+name: crystal-mastery
+version: 0.1.0
+
+authors:
+  - Paul Smith <paulcsmith0218@gmail.com>
+
+targets:
+  crystal-mastery:
+    main: src/crystal-mastery.cr
+
+crystal: 0.24.2
+
+dependencies:
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 0.10.0
+  lucky_migrator:
+    github: luckyframework/lucky_migrator
+    version: ~> 0.5.0
+  authentic:
+    github: luckyframework/authentic
+    version: ~> 0.1.0
+  carbon:
+    github: luckyframework/carbon
+    version: ~> 0.1.0
+  lucky_flow:
+    github: luckyframework/lucky_flow
+    version: ~> 0.1.0
