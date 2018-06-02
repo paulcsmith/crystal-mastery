@@ -1,3 +1,3 @@
 class EpisodeForm < Episode::BaseForm
-  fillable title, description
+  fillable title, description, video_url
 end

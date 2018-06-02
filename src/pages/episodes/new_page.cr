@@ -15,6 +15,7 @@ class Episodes::NewPage < MainLayout
   def render_episode_form(f)
     form_for Episodes::Create do
       field(f.title) { |i| text_input i, autofocus: "true", class: "input" }
+      field(f.video_url) { |i| text_input i, class: "input" }
       field(f.description) { |i| textarea i, class: "textarea" }
 
       submit "Save", class: "button is-primary", data_disable_with: "Saving..."

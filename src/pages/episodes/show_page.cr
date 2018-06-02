@@ -8,7 +8,11 @@ class Episodes::ShowPage < MainLayout
   def content
     div class: "hero" do
       h1 @episode.title, class: "title"
+      if @current_user
+        link "Delete", Episodes::Delete.with(@episode), data_confirm: "Are you sure?"
+      end
       para @episode.description, class: "subtitle"
+      video src: @episode.video_url, controls: "true"
     end
   end
 end
