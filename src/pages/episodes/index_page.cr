@@ -15,7 +15,7 @@ class Episodes::IndexPage < MainLayout
 
     ul do
       @episodes.each do |episode|
-        li episode.title
+        li { link episode.title, Episodes::Show.with(episode) }
       end
     end
   end
