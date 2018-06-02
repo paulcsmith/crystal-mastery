@@ -1,6 +1,10 @@
 class SignIns::NewPage < GuestLayout
   needs form : SignInForm
 
+  def page_title
+    "Sign in"
+  end
+
   def content
     h1 "Sign In"
     render_sign_in_form(@form)
