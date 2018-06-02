@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "browser-sync": "^2.18.13",
+    "bulma": "^0.7.1",
     "jquery": "^3.2.1",
     "laravel-mix": "^2.1.11",
     "lost": "^8.2.0",
