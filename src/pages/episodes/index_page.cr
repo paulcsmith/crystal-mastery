@@ -6,16 +6,17 @@ class Episodes::IndexPage < MainLayout
   end
 
   def content
-    h1 "All Episodes"
-    ul do
-      if @current_user
-        li { link "+ New Episode", Episodes::New }
-      end
+    div class: "hero" do
+      h1 "All Episodes", class: "title"
     end
 
-    ul do
+    div class: "section" do
       @episodes.each do |episode|
-        li { link episode.title, Episodes::Show.with(episode) }
+        div class: "card" do
+          div class: "card-header card-header-title" do
+            link episode.title, Episodes::Show.with(episode)
+          end
+        end
       end
     end
   end

@@ -6,7 +6,9 @@ class Episodes::ShowPage < MainLayout
   end
 
   def content
-    h1 @episode.title
-    para @episode.description
+    div class: "hero" do
+      h1 @episode.title, class: "title"
+      para @episode.description, class: "subtitle"
+    end
   end
 end
