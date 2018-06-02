@@ -2,9 +2,7 @@ abstract class MainLayout
   # Edit shared layout code in src/components/shared/layout.cr
   include Shared::Layout
 
-  # 'needs current_user : User' makes it so that the current_user
-  # is always required for pages using MainLayout
-  needs current_user : User
+  needs current_user : User?
 
   def render
     html_doctype
@@ -13,16 +11,26 @@ abstract class MainLayout
       shared_layout_head
 
       body do
+        render_nav
         render_flash
-        render_signed_in_user
         content
       end
     end
   end
 
-  private def render_signed_in_user
-    text @current_user.email
-    text " - "
-    link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+  def render_nav
+    ul do
+      li { link "Episodes", Episodes::Index }
+      li { sign_in_or_sign_out_link }
+    end
+  end
+
+  private def sign_in_or_sign_out_link
+    user = @current_user
+    if user
+      link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+    else
+      link "Sign in", to: SignIns::New
+    end
   end
 end
