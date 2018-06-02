@@ -11,16 +11,26 @@ abstract class MainLayout
       shared_layout_head
 
       body do
+        render_nav
         render_flash
-        render_signed_in_user
         content
       end
     end
   end
 
-  private def render_signed_in_user
-    @current_user.try do |user|
+  def render_nav
+    ul do
+      li { link "Episodes", Episodes::Index }
+      li { sign_in_or_sign_out_link }
+    end
+  end
+
+  private def sign_in_or_sign_out_link
+    user = @current_user
+    if user
       link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+    else
+      link "Sign in", to: SignIns::New
     end
   end
 end
