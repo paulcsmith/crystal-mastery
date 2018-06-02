@@ -7,6 +7,11 @@ class Episodes::IndexPage < MainLayout
 
   def content
     h1 "All Episodes"
+    ul do
+      if @current_user
+        li { link "+ New Episode", Episodes::New }
+      end
+    end
 
     ul do
       @episodes.each do |episode|
