@@ -14,7 +14,7 @@ class AuthenticationFlow < BaseFlow
   end
 
   def sign_out
-    visit Me::Show
+    visit Episodes::Index
     sign_out_button.click
   end
 
