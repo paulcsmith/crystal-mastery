@@ -1,7 +1,7 @@
 class Errors::Show < Lucky::ErrorAction
   def handle_error(error : JSON::ParseException)
     message = "There was a problem parsing the JSON." \
-            " Please check that it is formed correctly"
+              " Please check that it is formed correctly"
 
     if json?
       json Errors::ShowSerializer.new(message), status: 400
