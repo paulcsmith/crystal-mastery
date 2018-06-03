@@ -1,7 +1,6 @@
 module Shared::Layout
   macro included
     include Lucky::HTMLPage
-    include Shared::FieldErrors
     include Shared::FlashMessages
     include Shared::Field
   end

@@ -6,17 +6,17 @@ class Episodes::NewPage < MainLayout
   end
 
   def content
-    h1 "Add an Episode"
+    h1 "Add an Episode", class: "page-title"
     render_episode_form(@form)
   end
 
   def render_episode_form(f)
     form_for Episodes::Create do
-      field(f.title) { |i| text_input i, autofocus: "true" }
-      field(f.video_url) { |i| text_input i }
-      field(f.description) { |i| textarea i }
+      field(f.title) { |i| text_input i, class: "input", autofocus: "true" }
+      field(f.video_url) { |i| text_input i, class: "input" }
+      field(f.description) { |i| textarea i, class: "textarea" }
 
-      submit "Save", data_disable_with: "Saving..."
+      submit "Save", data_disable_with: "Saving...", class: "btn-action"
     end
   end
 end

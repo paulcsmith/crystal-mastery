@@ -2,11 +2,15 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "bourbon": "^5.0.0",
     "browser-sync": "^2.18.13",
+    "include-media": "^1.4.9",
     "jquery": "^3.2.1",
     "laravel-mix": "^2.1.11",
     "lost": "^8.2.0",
     "normalize-scss": "^7.0.1",
+    "open-color": "^1.6.3",
+    "postcss-initial": "^2.0.0",
     "rails-ujs": "^5.1.4",
     "turbolinks": "^5.0.3"
   },

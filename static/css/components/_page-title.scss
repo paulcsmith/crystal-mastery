@@ -1,0 +1,11 @@
+.page-title {
+  @include reset;
+  @include type-setting(2);
+  font-weight: 800;
+  color: $oc-gray-7;
+  display: flex;
+
+  &.-indented {
+    margin-left: $size0;
+  }
+}

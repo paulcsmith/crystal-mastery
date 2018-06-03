@@ -1,0 +1,8 @@
+.content-wrapper {
+  @include outer-container;
+  @include padding-vertical($size1);
+
+  .page-title {
+    margin-bottom: $size0;
+  }
+}

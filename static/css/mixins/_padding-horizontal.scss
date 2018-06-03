@@ -1,0 +1,4 @@
+@mixin padding-horizontal($size) {
+  padding-left: $size;
+  padding-right: $size;
+}

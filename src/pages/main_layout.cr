@@ -13,27 +13,35 @@ abstract class MainLayout
       body do
         render_nav
         render_flash
-        content
+        div class: "content-wrapper" do
+          content
+        end
       end
     end
   end
 
   def render_nav
-    link "Crystal Mastery", Episodes::Index
+    nav class: "main-nav" do
+      div class: "left-nav" do
+        link "Crystal Mastery", Episodes::Index, class: "logo"
+      end
 
-    link "Episodes", Episodes::Index, class: "navbar-item"
-    if @current_user
-      link "New Episode", Episodes::New, class: "navbar-item"
+      div class: "links" do
+        link "Episodes", Episodes::Index, class: "link"
+        if @current_user
+          link "New Episode", Episodes::New, class: "link"
+        end
+        sign_in_or_sign_out_link
+      end
     end
-    sign_in_or_sign_out_link
   end
 
   private def sign_in_or_sign_out_link
     user = @current_user
     if user
-      link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+      link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button", class: "link"
     else
-      link "Sign in", to: SignIns::New
+      link "Sign in", to: SignIns::New, class: "link"
     end
   end
 end

@@ -1,8 +1,30 @@
 .row-block {
-  padding: 10px 20px;
+  @include reset;
+  @include padding($size0);
+  text-decoration: none;
+  display: block;
+
+  &.-action:hover {
+    background-color: $action-hover-color;
+    border-radius: 5px;
+
+    .title {
+      color: $white;
+    }
+
+    .subtitle-text {
+      color: $oc-cyan-1;
+    }
+  }
+
+  .subtitle-text {
+    margin-bottom: $size-3;
+  }
 
   .title {
+    @include reset;
     font-weight: bold;
     text-transform: uppercase;
+    border-bottom: 2px solid $oc-cyan-6;
   }
 }

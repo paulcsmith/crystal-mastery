@@ -1,0 +1,58 @@
+@mixin input {
+  background: $white;
+  border: 1px solid $oc-gray-3;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+
+  &:focus,
+  &:active {
+    border-color: $oc-cyan-6;
+    box-shadow: 0 0 3px $oc-cyan-6;
+  }
+}
+
+.field-block {
+  @include reset;
+  display: flex;
+  flex-direction: column;
+
+  &:focus-within {
+    label {
+      color: $black;
+    }
+  }
+
+  label {
+    @include reset;
+    margin-bottom: $size-3;
+    font-weight: 600;
+    color: $oc-gray-6;
+  }
+
+  .input {
+    @include reset;
+    @include control;
+    @include input;
+  }
+
+  .textarea {
+    @include reset;
+    @include control;
+    @include input;
+    resize: vertical;
+
+    &:not([rows]) {
+      max-height: 600px;
+      min-height: 120px;
+    }
+
+    &[rows] {
+      height: initial;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $size0;
+  }
+}

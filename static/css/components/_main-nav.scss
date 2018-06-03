@@ -1,0 +1,53 @@
+$main-nav-height: 60px;
+
+.main-nav {
+  @include outer-container;
+  @include shadow-subtle;
+  background-color: $white;
+  display: flex;
+  height: $main-nav-height;
+
+  .left-nav {
+    @include reset;
+    @include push-siblings-away;
+  }
+
+  .logo {
+    @include reset;
+    @include padding-horizontal($size0);
+    background: $oc-cyan-6;
+    color: $white;
+    display: inline-block;
+    font-weight: 600;
+    height: 100%;
+    letter-spacing: $all-caps-letter-spacing;
+    line-height: $main-nav-height;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $oc-cyan-9;
+    }
+  }
+
+  .links {
+    @include reset;
+    float: right;
+  }
+
+  .link {
+    @include reset;
+    @include type-setting(-1);
+    @include all-caps;
+    @include padding-horizontal($size0);
+    color: $oc-gray-7;
+    display: inline-block;
+    height: 100%;
+    line-height: $main-nav-height;
+    text-decoration: none;
+
+    &:hover {
+      background: $action-hover-color;
+      color: $oc-gray-1;
+    }
+  }
+}

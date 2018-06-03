@@ -1,0 +1,9 @@
+.subtitle-text {
+  @include reset;
+  @include type-setting(-1);
+  @include all-caps;
+  font-weight: 800;
+  color: $oc-gray-5;
+  text-transform: uppercase;
+  display: flex;
+}

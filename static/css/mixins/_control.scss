@@ -1,0 +1,24 @@
+@mixin control {
+  @include padding-horizontal($size-2);
+  @include padding-vertical($size-3);
+  appearance: none;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: none;
+  display: inline-flex;
+  height: $size1;
+  justify-content: flex-start;
+  line-height: 1.5;
+  position: relative;
+  vertical-align: top;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
