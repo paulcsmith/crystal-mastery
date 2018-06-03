@@ -6,19 +6,17 @@ class Episodes::NewPage < MainLayout
   end
 
   def content
-    div class: "container column is-half" do
-      h1 "Add an Episode", class: "title"
-      render_episode_form(@form)
-    end
+    h1 "Add an Episode"
+    render_episode_form(@form)
   end
 
   def render_episode_form(f)
     form_for Episodes::Create do
-      field(f.title) { |i| text_input i, autofocus: "true", class: "input" }
-      field(f.video_url) { |i| text_input i, class: "input" }
-      field(f.description) { |i| textarea i, class: "textarea" }
+      field(f.title) { |i| text_input i, autofocus: "true" }
+      field(f.video_url) { |i| text_input i }
+      field(f.description) { |i| textarea i }
 
-      submit "Save", class: "button is-primary", data_disable_with: "Saving..."
+      submit "Save", data_disable_with: "Saving..."
     end
   end
 end
