@@ -17,9 +17,6 @@ class SignIns::NewPage < GuestLayout
       sign_in_fields(f)
       submit "Sign In", flow_id: "sign-in-button", class: "btn-action"
     end
-    link "Reset password", to: PasswordResetRequests::New
-    text " | "
-    link "Sign up", to: SignUps::New
   end
 
   private def sign_in_fields(f)
