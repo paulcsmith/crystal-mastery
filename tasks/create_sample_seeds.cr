@@ -8,14 +8,10 @@ class Db::CreateSampleSeeds < LuckyCli::Task
   banner "Add sample database records helpful for development"
 
   def call
-    # Using a LuckyRecord::Box:
-    #
-    # Use the defaults, but override just the email
-    # UserBox.create &.email("me@example.com")
-
-    # Using a form:
-    #
-    # UserForm.create!(email: "me@example.com", name: "Jane")
-    puts "Done adding sample data"
+    admin_email = "admin@example.com"
+    unless UserQuery.new.email(admin_email).first?
+      password = Authentic.generate_encrypted_password("password")
+      UserForm.create!(email: admin_email, encrypted_password: password)
+    end
   end
 end
