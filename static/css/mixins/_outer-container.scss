@@ -1,11 +1,15 @@
 @mixin outer-container {
   @include padding-horizontal($size0);
 
-  @include media(">tablet") {
+  @include media(">medium") {
     @include padding-horizontal(12%);
   }
 
-  @include media(">desktop") {
-    @include padding-horizontal(18%);
+  @include media(">large") {
+    @include padding-horizontal(16%);
+  }
+
+  @include media(">x-large") {
+    @include padding-horizontal(20%);
   }
 }

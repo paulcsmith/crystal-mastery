@@ -11,6 +11,13 @@
 // Note: importing with `~` tells webpack to look in the installed npm packages
 // https://stackoverflow.com/questions/39535760/what-does-a-tilde-in-a-css-url-do
 
+$breakpoints: (
+  small: 320px,
+  medium: 768px,
+  large: 1024px,
+  x-large: 1366px
+);
+
 @import "~normalize-scss/sass/normalize/import-now";
 @import "~bourbon/core/bourbon";
 @import "~open-color/open-color";
@@ -40,3 +47,6 @@
 @import "./components/btn-action";
 @import "./components/narrow-container";
 @import "./components/flash-block";
+@import "./components/comment-block";
+@import "./components/section-title";
+@import "./components/page-summary";

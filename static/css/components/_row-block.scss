@@ -1,8 +1,11 @@
 .row-block {
   @include reset;
-  @include padding($size0);
   text-decoration: none;
   display: block;
+
+  &.-action {
+    @include padding($size0);
+  }
 
   &.-action:hover {
     background-color: $action-hover-color;

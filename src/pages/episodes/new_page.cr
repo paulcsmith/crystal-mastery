@@ -6,7 +6,7 @@ class Episodes::NewPage < MainLayout
   end
 
   def content
-    div class: "narrow-container" do
+    div class: "narrow-container -well" do
       h1 "Add an Episode", class: "page-title"
       render_episode_form(@form)
     end

@@ -1,0 +1,11 @@
+.section-title {
+  @include reset;
+  @include type-setting(1);
+  font-weight: 800;
+  color: $heading-color;
+  display: flex;
+
+  &.-pushed-down {
+    margin-top: $size1;
+  }
+}

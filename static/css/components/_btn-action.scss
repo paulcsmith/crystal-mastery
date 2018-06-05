@@ -4,15 +4,17 @@
   @include padding-vertical($size-2);
   @include all-caps;
   @include type-setting(-1);
+  @include shadow;
   font-weight: 600;
-  border-radius: 50px;
+  border-radius: 5px;
   display: block;
-  background: $oc-teal-6;
+  background: linear-gradient($oc-teal-5, $oc-teal-7);
   color: $white;
   cursor: pointer;
 
   &:hover,
   &:active {
-    background: $oc-teal-8;
+    background: linear-gradient($oc-teal-6, $oc-teal-8);
+    @include shadow-medium;
   }
 }

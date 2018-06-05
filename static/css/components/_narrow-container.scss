@@ -1,4 +1,15 @@
 .narrow-container {
   margin: 0 auto;
   max-width: 750px;
+
+  &.-well {
+    @include margin($size3 null);
+    background: $oc-gray-1;
+    padding: $size0;
+    border-radius: 6px;
+
+    @include media(">medium") {
+      padding: $size1 $size2;
+    }
+  }
 }

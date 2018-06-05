@@ -1,6 +1,5 @@
 @mixin control {
-  @include padding-horizontal($size-2);
-  @include padding-vertical($size-3);
+  padding: $size0 $size-3;
   appearance: none;
   align-items: center;
   border: 1px solid transparent;
