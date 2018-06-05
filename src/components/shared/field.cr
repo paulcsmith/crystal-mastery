@@ -21,7 +21,7 @@ module Shared::Field
   # You may also want to have more than one method if you render fields
   # differently in different parts of your app, e.g. `compact_field`
   private def field(field, hide_label : Bool = false, hide_errors : Bool = false, label_options = NamedTuple.new)
-    div class: "field-block" do
+    div class: "field-block #{error_class(field)}" do
       unless hide_label
         label_for field, **label_options
       end
@@ -31,6 +31,12 @@ module Shared::Field
       unless hide_errors
         errors_for field
       end
+    end
+  end
+
+  def error_class(field)
+    unless field.valid?
+      "-has-error"
     end
   end
 
