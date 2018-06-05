@@ -3,6 +3,7 @@ module Shared::Layout
     include Lucky::HTMLPage
     include Shared::FlashMessages
     include Shared::Field
+    include Shared::Nav
   end
 
   abstract def content

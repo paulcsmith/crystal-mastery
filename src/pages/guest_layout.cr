@@ -9,8 +9,11 @@ abstract class GuestLayout
       shared_layout_head
 
       body do
+        render_nav
         render_flash
-        content
+        div class: "content-wrapper" do
+          content
+        end
       end
     end
   end
