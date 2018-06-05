@@ -2,7 +2,7 @@
   @include reset;
   @include type-setting(2);
   font-weight: 800;
-  color: $oc-gray-7;
+  color: $heading-color;
   display: flex;
 
   &.-indented {

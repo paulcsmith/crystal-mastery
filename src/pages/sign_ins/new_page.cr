@@ -6,7 +6,7 @@ class SignIns::NewPage < GuestLayout
   end
 
   def content
-    div class: "narrow-container" do
+    div class: "narrow-container -well" do
       h1 "Sign In", class: "page-title"
       render_sign_in_form(@form)
     end

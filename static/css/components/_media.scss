@@ -6,5 +6,7 @@ img,
 picture,
 video {
   margin: 0;
+  width: 100%;
   max-width: 100%;
+  background: $oc-gray-3;
 }

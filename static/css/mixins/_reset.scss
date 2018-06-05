@@ -1,3 +1,4 @@
 @mixin reset {
   all: initial;
+  box-sizing: inherit;
 }

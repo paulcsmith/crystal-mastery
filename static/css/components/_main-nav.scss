@@ -15,17 +15,18 @@ $main-nav-height: 60px;
   .logo {
     @include reset;
     @include padding-horizontal($size0);
-    background: $oc-cyan-6;
-    color: $white;
+    @include type-setting(0);
+    border-top: 3px solid $oc-cyan-6;
+    color: $heading-color;
     display: inline-block;
-    font-weight: 600;
+    font-weight: 800;
     height: 100%;
     letter-spacing: $all-caps-letter-spacing;
     line-height: $main-nav-height;
     text-transform: uppercase;
 
     &:hover {
-      background: $oc-cyan-9;
+      background: $oc-gray-1;
     }
   }
 

@@ -1,12 +1,6 @@
 $all-caps-letter-spacing: 1.1px;
 
-$type-scale: (
-  -2: 0.6rem,
-  -1: 0.8rem,
-  0: 1rem,
-  1: 1.333rem,
-  2: 1.777rem
-);
+$type-scale: (-2: 0.6rem, -1: 0.8rem, 0: 1.1rem, 1: 1.333rem, 2: 1.777rem);
 
 @function type-scale($level) {
   @return map-get($type-scale, $level);

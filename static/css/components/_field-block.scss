@@ -1,6 +1,6 @@
 @mixin input {
   background: $white;
-  border: 1px solid $oc-gray-3;
+  border: 1px solid $oc-gray-4;
   display: block;
   width: 100%;
   max-width: 100%;
@@ -71,6 +71,6 @@
   }
 
   &:not(:last-child) {
-    margin-bottom: $size0;
+    margin-bottom: $size1;
   }
 }
