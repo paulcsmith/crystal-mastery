@@ -1,0 +1,10 @@
+.flash-block {
+  @include outer-container;
+  @include padding-vertical($size0);
+  text-align: center;
+  background: $oc-yellow-1;
+  color: $oc-yellow-9;
+  border-top: 2px solid $oc-yellow-3;
+  border-bottom: 2px solid $oc-yellow-3;
+  font-weight: 600;
+}
