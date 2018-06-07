@@ -1,4 +1,6 @@
 class Episodes::Comments::Create < BrowserAction
+  include Auth::RequireSignIn
+
   nested_route do
     CommentForm.create(params, episode_id: episode.id, author_id: current_user.id) do |form, comment|
       if comment

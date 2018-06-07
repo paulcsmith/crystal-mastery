@@ -1,4 +1,6 @@
 module Auth::SkipRequireSignIn
+  include Base
+
   def require_sign_in
     continue
   end

@@ -17,4 +17,8 @@ abstract class GuestLayout
       end
     end
   end
+
+  def current_user
+    nil
+  end
 end

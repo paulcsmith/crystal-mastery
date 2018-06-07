@@ -1,4 +1,6 @@
 module Auth::RedirectIfSignedIn
+  include Base
+
   macro included
     include Auth::SkipRequireSignIn
     before redirect_if_signed_in

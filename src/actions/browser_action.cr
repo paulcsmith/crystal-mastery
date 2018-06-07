@@ -8,10 +8,6 @@ abstract class BrowserAction < Lucky::Action
   # flow.visit Me::Show, as: UserBox.create
   include Auth::SignInThroughBackdoor
 
-  # By default all actions require sign in, unless you use the
-  # `Auth::SkipRequireSignIn` module in `src/mixins/auth/skip_require_sign_in.cr`
-  include Auth::RequireSignIn
-
   # `expose` means that `current_user` will be passed to pages automatically.
   #
   # In default Lucky apps, the `MainLayout` declares it `needs current_user : User`
@@ -25,4 +21,6 @@ abstract class BrowserAction < Lucky::Action
   private def find_current_user(id) : User
     UserQuery.find(id)
   end
+
+  abstract def remembered_to_include_authorization_module
 end

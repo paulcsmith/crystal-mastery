@@ -1,4 +1,6 @@
 class Episodes::Create < BrowserAction
+  include Auth::RequireAdmin
+
   route do
     EpisodeForm.create(params) do |form, episode|
       if episode
