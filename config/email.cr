@@ -5,8 +5,11 @@ BaseEmail.configure do
     #   settings.adapter = Carbon::DevAdapter.new
     #
     # If you do need emails, get a key from SendGrid and set an ENV variable
-    send_grid_key = send_grid_key_from_env
-    settings.adapter = Carbon::SendGridAdapter.new(api_key: send_grid_key)
+    # send_grid_key = send_grid_key_from_env
+    # settings.adapter = Carbon::SendGridAdapter.new(api_key: send_grid_key)
+    #
+    # Use DevAdapter for now
+    settings.adapter = Carbon::DevAdapter.new
   else
     settings.adapter = Carbon::DevAdapter.new
   end
