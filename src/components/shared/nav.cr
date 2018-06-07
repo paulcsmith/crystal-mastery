@@ -7,7 +7,7 @@ module Shared::Nav
 
       div class: "links" do
         link "Episodes", Episodes::Index, class: "link"
-        if user
+        when_admin do
           link "New Episode", Episodes::New, class: "link"
         end
         sign_in_or_sign_out_link(user)

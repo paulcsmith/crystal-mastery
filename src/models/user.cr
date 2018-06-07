@@ -5,6 +5,11 @@ class User < BaseModel
   table :users do
     column email : String
     column encrypted_password : String
+    column admin : Bool
+  end
+
+  def admin? : Bool
+    admin
   end
 
   def emailable

@@ -4,6 +4,7 @@ module Shared::Layout
     include Shared::FlashMessages
     include Shared::Field
     include Shared::Nav
+    include AuthorizationHelpers
   end
 
   abstract def content

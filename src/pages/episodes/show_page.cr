@@ -55,7 +55,7 @@ class Episodes::ShowPage < MainLayout
   end
 
   def delete_button
-    if @current_user
+    when_admin do
       link "Delete", Episodes::Delete.with(@episode), data_confirm: "Are you sure?"
     end
   end

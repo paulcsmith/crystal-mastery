@@ -2,6 +2,7 @@ abstract class MainLayout
   # Edit shared layout code in src/components/shared/layout.cr
   include Shared::Layout
 
+  private getter current_user
   needs current_user : User?
 
   def render
@@ -17,6 +18,13 @@ abstract class MainLayout
           content
         end
       end
+    end
+  end
+
+  def when_admin
+    user = @current_user
+    if user.try(&.admin?)
+      yield
     end
   end
 end
