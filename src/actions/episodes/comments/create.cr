@@ -1,5 +1,5 @@
 class Episodes::Comments::Create < BrowserAction
-  nested_action do
+  nested_route do
     CommentForm.create(params, episode_id: episode.id, author_id: current_user.id) do |form, comment|
       if comment
         flash.success = "Comment saved"

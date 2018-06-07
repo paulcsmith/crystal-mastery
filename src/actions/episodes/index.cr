@@ -1,7 +1,7 @@
 class Episodes::Index < BrowserAction
   include Auth::SkipRequireSignIn
 
-  action do
+  route do
     render IndexPage, episodes: EpisodeQuery.new
   end
 end
