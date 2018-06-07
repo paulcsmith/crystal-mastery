@@ -1,4 +1,4 @@
-name: crystal-mastery
+name: crystal_mastery
 version: 0.1.0
 
 authors:
@@ -6,7 +6,7 @@ authors:
 
 targets:
   crystal-mastery:
-    main: src/crystal-mastery.cr
+    main: src/crystal_mastery.cr
 
 crystal: 0.24.2
 
