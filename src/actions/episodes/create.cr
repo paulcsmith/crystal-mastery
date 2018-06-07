@@ -1,5 +1,5 @@
 class Episodes::Create < BrowserAction
-  action do
+  route do
     EpisodeForm.create(params) do |form, episode|
       if episode
         redirect Episodes::Index

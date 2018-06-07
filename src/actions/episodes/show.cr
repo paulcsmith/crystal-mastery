@@ -1,7 +1,7 @@
 class Episodes::Show < BrowserAction
   include Auth::SkipRequireSignIn
 
-  action do
+  route do
     render ShowPage, episode: episode, comment_form: CommentForm.new
   end
 

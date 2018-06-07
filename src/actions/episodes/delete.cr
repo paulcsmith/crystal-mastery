@@ -1,5 +1,5 @@
 class Episodes::Delete < BrowserAction
-  action do
+  route do
     EpisodeQuery.find(id).delete
     redirect Episodes::Index
   end
