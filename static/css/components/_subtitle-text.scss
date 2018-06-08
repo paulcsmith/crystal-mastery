@@ -1,7 +1,7 @@
 .subtitle-text {
-  @include reset;
   @include type-setting(-1);
   @include all-caps;
+  margin: 0;
   font-weight: 800;
   color: $subheading-color;
   text-transform: uppercase;

@@ -1,14 +1,14 @@
 .comment-block {
-  @include reset;
-  @include padding-vertical($size0);
+  @include padding-vertical($size-2);
   display: flex;
   flex-direction: column;
   margin-bottom: $size-1;
-  border-bottom: 1px solid $oc-gray-3;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $oc-gray-3;
+  }
 
   .body {
-    @include reset;
-
     strong {
       font-weight: 600;
     }

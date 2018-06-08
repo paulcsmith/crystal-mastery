@@ -1,5 +1,4 @@
 .row-block {
-  @include reset;
   text-decoration: none;
   display: block;
 
@@ -25,7 +24,7 @@
   }
 
   .title {
-    @include reset;
+    color: $body-color;
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 2px solid $oc-cyan-6;
