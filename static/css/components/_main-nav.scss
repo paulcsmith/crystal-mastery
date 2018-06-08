@@ -8,12 +8,10 @@ $main-nav-height: 60px;
   height: $main-nav-height;
 
   .left-nav {
-    @include reset;
     @include push-siblings-away;
   }
 
   .logo {
-    @include reset;
     @include padding-horizontal($size0);
     @include type-setting(0);
     border-top: 3px solid $oc-cyan-6;
@@ -24,6 +22,7 @@ $main-nav-height: 60px;
     letter-spacing: $all-caps-letter-spacing;
     line-height: $main-nav-height;
     text-transform: uppercase;
+    text-decoration: none;
 
     &:hover {
       background: $oc-gray-1;
@@ -31,12 +30,10 @@ $main-nav-height: 60px;
   }
 
   .links {
-    @include reset;
     float: right;
   }
 
   .link {
-    @include reset;
     @include type-setting(-1);
     @include all-caps;
     @include padding-horizontal($size0);

@@ -14,7 +14,6 @@
 }
 
 .field-block {
-  @include reset;
   display: flex;
   flex-direction: column;
 
@@ -36,26 +35,22 @@
   }
 
   .help {
-    @include reset;
     @include type-setting(-1);
     margin-top: $size-3;
   }
 
   label {
-    @include reset;
     margin-bottom: $size-3;
     font-weight: 600;
     color: $oc-gray-6;
   }
 
   .input {
-    @include reset;
     @include control;
     @include input;
   }
 
   .textarea {
-    @include reset;
     @include control;
     @include input;
     resize: vertical;

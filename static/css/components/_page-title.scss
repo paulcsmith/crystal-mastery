@@ -1,6 +1,6 @@
 .page-title {
-  @include reset;
   @include type-setting(2);
+  margin: 0;
   font-weight: 800;
   color: $heading-color;
   display: flex;
