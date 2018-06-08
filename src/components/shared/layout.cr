@@ -14,7 +14,6 @@ module Shared::Layout
       utf8_charset
       title "#{page_title} - Crystal Mastery"
       css_link asset("css/app.css")
-      js_link asset("js/app.js")
       csrf_meta_tags
       responsive_meta_tag
     end
