@@ -22,7 +22,7 @@ class App
   private getter server
 
   def initialize
-    @server = HTTP::Server.new(host, port, [
+    @server = HTTP::Server.new([
       Lucky::HttpMethodOverrideHandler.new,
       Lucky::LogHandler.new,
       Lucky::SessionHandler.new,
@@ -47,6 +47,7 @@ class App
   end
 
   def listen
+    server.bind_tcp host, port
     server.listen
   end
 

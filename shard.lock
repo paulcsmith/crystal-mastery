@@ -22,11 +22,11 @@ shards:
 
   lucky:
     github: luckyframework/lucky
-    commit: ce57c7bd5f324b6bfc57c1b4d62ba56cb6befd36
+    commit: 39f919e51ba0bfaee70cc1c38c423dd364207989
 
   lucky_cli:
     github: luckyframework/lucky_cli
-    version: 0.10.0
+    version: 0.11.0
 
   lucky_flow:
     github: luckyframework/lucky_flow
@@ -42,7 +42,7 @@ shards:
 
   lucky_record:
     github: luckyframework/lucky_record
-    commit: a1cb1542a827bdf452085085b692dab9f5220fb9
+    version: 0.6.0
 
   lucky_router:
     github: luckyframework/lucky_router
@@ -50,7 +50,7 @@ shards:
 
   pg:
     github: will/crystal-pg
-    version: 0.14.1
+    version: 0.15.0
 
   selenium:
     github: ysbaddaden/selenium-webdriver-crystal
@@ -61,6 +61,6 @@ shards:
     version: 0.9.2
 
   teeplate:
-    github: bcardiff/teeplate
-    commit: 27475f26c2fba4f7ece929f89b6c0808cafcadb5
+    github: mosop/teeplate
+    version: 0.6.1
 
