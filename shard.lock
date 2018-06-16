@@ -22,7 +22,7 @@ shards:
 
   lucky:
     github: luckyframework/lucky
-    commit: 39f919e51ba0bfaee70cc1c38c423dd364207989
+    version: 0.11.0
 
   lucky_cli:
     github: luckyframework/lucky_cli
@@ -30,7 +30,7 @@ shards:
 
   lucky_flow:
     github: luckyframework/lucky_flow
-    version: 0.1.1
+    version: 0.2.0
 
   lucky_inflector:
     github: luckyframework/lucky_inflector
@@ -38,7 +38,7 @@ shards:
 
   lucky_migrator:
     github: luckyframework/lucky_migrator
-    version: 0.5.0
+    version: 0.6.0
 
   lucky_record:
     github: luckyframework/lucky_record
@@ -53,8 +53,8 @@ shards:
     version: 0.15.0
 
   selenium:
-    github: ysbaddaden/selenium-webdriver-crystal
-    commit: 24e15487ebc2dca0ea09600ca32652dc7b88a359
+    github: paulcsmith/selenium-webdriver-crystal
+    commit: e01b0fbd7dda6179f44be73e1850d05977b774ba
 
   shell-table:
     github: jwaldrip/shell-table.cr
