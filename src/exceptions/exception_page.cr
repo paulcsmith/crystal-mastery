@@ -2,17 +2,68 @@ require "ecr"
 
 module Lucky::Exceptions
   class ExceptionPage
+    class FrameGenerator
+      def self.generate_frames(message)
+        generated_frames = [] of Frame
+        if raw_frames = message.scan(/\s([^\s\:]+):(\d+)([^\n]+)/)
+          raw_frames.each_with_index do |frame, index|
+            snippets = [] of Tuple(Int32, String, Bool)
+            file = frame[1]
+            filename = file.split('/').last
+            linenumber = frame[2].to_i
+            linemsg = "#{file}:#{linenumber}#{frame[3]}"
+            if File.exists?(file)
+              lines = File.read_lines(file)
+              lines.each_with_index do |code, codeindex|
+                if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
+                  highlight = (codeindex + 1 == linenumber) ? true : false
+                  snippets << {codeindex + 1, code, highlight}
+                end
+              end
+            end
+            generated_frames << Frame.new(index, file, linemsg, linenumber, filename, snippets)
+          end
+        end
+        if self.class.name == "ExceptionPageServer"
+          generated_frames.reverse
+        else
+          generated_frames
+        end
+      end
+    end
+
     struct Frame
-      property app : String,
-        args : String,
-        context : String,
+      property args : String,
         index : Int32,
         file : String,
         line : Int32,
         info : String,
         snippet = [] of Tuple(Int32, String, Bool)
 
-      def initialize(@app, @context, @index, @file, @args, @line, @info, @snippet)
+      def initialize(@index, @file, @args, @line, @info, @snippet)
+      end
+
+      def app : String
+        # TODO: Needs to check for crystal-lang too
+        case file
+        when .includes?("/crystal/")
+          "crystal"
+        when .includes?("/amber/")
+          "amber"
+        when .includes?("lib/")
+          "shards"
+        else
+          context = "app"
+          "app"
+        end
+      end
+
+      def context
+        if app == "app"
+          "app"
+        else
+          "all"
+        end
       end
     end
 
@@ -37,43 +88,7 @@ module Lucky::Exceptions
     end
 
     def generate_frames_from(message : String)
-      generated_frames = [] of Frame
-      if frames = message.scan(/\s([^\s\:]+):(\d+)([^\n]+)/)
-        frames.each_with_index do |frame, index|
-          snippets = [] of Tuple(Int32, String, Bool)
-          file = frame[1]
-          filename = file.split('/').last
-          linenumber = frame[2].to_i
-          linemsg = "#{file}:#{linenumber}#{frame[3]}"
-          if File.exists?(file)
-            lines = File.read_lines(file)
-            lines.each_with_index do |code, codeindex|
-              if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
-                highlight = (codeindex + 1 == linenumber) ? true : false
-                snippets << {codeindex + 1, code, highlight}
-              end
-            end
-          end
-          context = "all"
-          app = case file
-                when .includes?("/crystal/")
-                  "crystal"
-                when .includes?("/amber/")
-                  "amber"
-                when .includes?("lib/")
-                  "shards"
-                else
-                  context = "app"
-                  "app"
-                end
-          generated_frames << Frame.new(app, context, index, file, linemsg, linenumber, filename, snippets)
-        end
-      end
-      if self.class.name == "ExceptionPageServer"
-        generated_frames.reverse
-      else
-        generated_frames
-      end
+      FrameGenerator.generate_frames(message)
     end
 
     ECR.def_to_s "#{__DIR__}/exception_page.ecr"
@@ -95,12 +110,5 @@ module Lucky::Exceptions
       @path = Dir.current
       @frames = generate_frames_from(message)
     end
-  end
-
-  class ExceptionPageServerScript
-    def initialize(@error_id : String)
-    end
-
-    ECR.def_to_s "#{__DIR__}/exception_page_server_script.js"
   end
 end
