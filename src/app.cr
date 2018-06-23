@@ -15,6 +15,7 @@ require "./actions/**"
 require "./components/**"
 require "./pages/mixins/**"
 require "./pages/**"
+require "./exceptions/**"
 require "../config/env"
 require "../config/**"
 
@@ -27,7 +28,7 @@ class App
       Lucky::LogHandler.new,
       Lucky::SessionHandler.new,
       Lucky::Flash::Handler.new,
-      Lucky::ErrorHandler.new(action: Errors::Show),
+      CustomErrorHandler.new(action: Errors::Show),
       Lucky::RouteHandler.new,
       Lucky::StaticFileHandler.new("./public", false),
       Lucky::RouteNotFoundHandler.new,
