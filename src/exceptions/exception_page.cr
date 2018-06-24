@@ -51,7 +51,11 @@ module Lucky::Exceptions
       end
 
       def args
-        "#{file}:#{line}#{raw_frame[3]}"
+        "#{file}:#{line}#{column_with_surrounding_method_name}"
+      end
+
+      private def column_with_surrounding_method_name
+        raw_frame[3]
       end
 
       def app : String
