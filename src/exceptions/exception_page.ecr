@@ -633,12 +633,12 @@ monospace_font = "menlo, consolas, monospace"
                     </div>
 
                     <%- if !frame.snippets.empty? -%>
-<pre class="code code-block"><%- frame.snippets.each do |index, line, highlight| -%><span class="line <% if highlight %>-highlight<% end %>">
-<span class="ln"><%= index %></span><span class="code"><%= HTML.escape(line.rstrip).gsub("&#39;", '\'').gsub("&quot;", '"') %></span></span>
-<%- end -%>
-</pre>
+                      <pre class="code code-block">
+                        <%- frame.snippets.each do |snippet| -%>
+                          <span class="line <% if snippet.highlight %>-highlight<% end %>"><span class="ln"><%= snippet.line %></span><span class="code"><%= HTML.escape(snippet.code.rstrip).gsub("&#39;", '\'').gsub("&quot;", '"') %></span></span><%- end -%>
+                      </pre>
                     <%- else -%>
-                    <div class="code code-block-empty">No code available.</div>
+                      <div class="code code-block-empty">No code available.</div>
                     <%- end -%>
 
                     <% if !frame.args.blank? %>

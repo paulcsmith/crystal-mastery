@@ -19,23 +19,40 @@ module Lucky::Exceptions
     end
 
     struct Frame
+      struct Snippet
+        property line : Int32,
+          code : String,
+          highlight : Bool
+
+        def initialize(@line, @code, @highlight)
+        end
+      end
+
       property index : Int32, raw_frame : Regex::MatchData
 
       def initialize(@raw_frame, @index)
       end
 
-      def snippets : Array(Tuple(Int32, String, Bool))
-        snippets = [] of Tuple(Int32, String, Bool)
+      def snippets : Array(Snippet)
+        snippets = [] of Snippet
         if File.exists?(file)
           lines = File.read_lines(file)
-          lines.each_with_index do |code, codeindex|
-            if (codeindex + 1) <= (line + 5) && (codeindex + 1) >= (line - 5)
-              highlight = (codeindex + 1 == line) ? true : false
-              snippets << {codeindex + 1, code, highlight}
+          lines.each_with_index do |code, code_index|
+            if line_is_nearby?(code_index)
+              highlight = (code_index + 1 == line) ? true : false
+              snippets << Snippet.new(
+                line: code_index + 1,
+                code: code,
+                highlight: highlight
+              )
             end
           end
         end
         snippets
+      end
+
+      private def line_is_nearby?(code_index : Int32)
+        (code_index + 1) <= (line + 5) && (code_index + 1) >= (line - 5)
       end
 
       def file : String
