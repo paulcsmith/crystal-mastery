@@ -21,7 +21,14 @@ module Lucky::Exceptions
                 end
               end
             end
-            generated_frames << Frame.new(index, file, linemsg, linenumber, filename, snippets)
+            generated_frames << Frame.new(
+              index: index,
+              file: file,
+              args: linemsg,
+              line: linenumber,
+              info: filename,
+              snippet: snippets
+            )
           end
         end
         if self.class.name == "ExceptionPageServer"
