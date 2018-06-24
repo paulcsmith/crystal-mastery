@@ -647,7 +647,7 @@ monospace_font = "menlo, consolas, monospace"
                             <% if app = frame.app %>
                             <span class="app"><%= app %></span>
                             <% end %>
-                            <%= frame.info %>
+                            <%= frame.filename %>
                         </summary>
                         <blockquote class="code-quote -padded"><%= HTML.escape(frame.args).gsub("&#39;", '\'').gsub("&quot;", '"') %></blockquote>
                     </details>
@@ -657,7 +657,7 @@ monospace_font = "menlo, consolas, monospace"
                             <% if app = frame.app %>
                             <span class="app"><%= app %></span>
                             <% end %>
-                            <%= frame.info %>
+                            <%= frame.filename %>
                         </div>
                     </div>
                     <% end %>
@@ -685,7 +685,7 @@ monospace_font = "menlo, consolas, monospace"
                                 </span>
                             </span>
 
-                            <span class="info"><%= frame.info %></span>
+                            <span class="info"><%= frame.filename %></span>
                         </button>
                     </li>
                     <% end %>

@@ -42,11 +42,7 @@ module Lucky::Exceptions
         raw_frame[1]
       end
 
-      def info
-        filename
-      end
-
-      private def filename : String
+      def filename : String
         file.split('/').last
       end
 
