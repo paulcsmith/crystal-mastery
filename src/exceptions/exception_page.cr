@@ -7,28 +7,7 @@ module Lucky::Exceptions
         generated_frames = [] of Frame
         if raw_frames = message.scan(/\s([^\s\:]+):(\d+)([^\n]+)/)
           raw_frames.each_with_index do |frame, index|
-            snippets = [] of Tuple(Int32, String, Bool)
-            file = frame[1]
-            filename = file.split('/').last
-            linenumber = frame[2].to_i
-            linemsg = "#{file}:#{linenumber}#{frame[3]}"
-            if File.exists?(file)
-              lines = File.read_lines(file)
-              lines.each_with_index do |code, codeindex|
-                if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
-                  highlight = (codeindex + 1 == linenumber) ? true : false
-                  snippets << {codeindex + 1, code, highlight}
-                end
-              end
-            end
-            generated_frames << Frame.new(
-              index: index,
-              file: file,
-              args: linemsg,
-              line: linenumber,
-              info: filename,
-              snippet: snippets
-            )
+            generated_frames << Frame.new(raw_frame: frame, index: index)
           end
         end
         if self.class.name == "ExceptionPageServer"
@@ -40,15 +19,78 @@ module Lucky::Exceptions
     end
 
     struct Frame
-      property args : String,
-        index : Int32,
-        file : String,
-        line : Int32,
-        info : String,
-        snippet = [] of Tuple(Int32, String, Bool)
+      property index : Int32, raw_frame : Regex::MatchData
 
-      def initialize(@index, @file, @args, @line, @info, @snippet)
+      def initialize(@raw_frame, @index)
       end
+
+      # TODO: Rename to snippets
+      def snippet : Array(Tuple(Int32, String, Bool))
+        snippets = [] of Tuple(Int32, String, Bool)
+        if File.exists?(file)
+          lines = File.read_lines(file)
+          lines.each_with_index do |code, codeindex|
+            if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
+              highlight = (codeindex + 1 == linenumber) ? true : false
+              snippets << {codeindex + 1, code, highlight}
+            end
+          end
+        end
+        snippets
+      end
+
+      def file : String
+        raw_frame[1]
+      end
+
+      def info
+        filename
+      end
+
+      private def filename : String
+        file.split('/').last
+      end
+
+      def line
+        linenumber
+      end
+
+      private def linenumber : Int32
+        raw_frame[2].to_i
+      end
+
+      def args
+        linemsg
+      end
+
+      private def linemsg
+        "#{file}:#{linenumber}#{raw_frame[3]}"
+      end
+
+      # snippets = [] of Tuple(Int32, String, Bool)
+      # file = frame[1]
+      # filename = file.split('/').last
+      # linenumber = frame[2].to_i
+      # linemsg = "#{file}:#{linenumber}#{frame[3]}"
+      # if File.exists?(file)
+      #   lines = File.read_lines(file)
+      #   lines.each_with_index do |code, codeindex|
+      #     if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
+      #       highlight = (codeindex + 1 == linenumber) ? true : false
+      #       snippets << {codeindex + 1, code, highlight}
+      #     end
+      #   end
+      # end
+      #
+      # generated_frames << Frame.new(
+      #   raw_frame: frame,
+      #   index: index,
+      #   file: file,
+      #   args: linemsg,
+      #   line: linenumber,
+      #   info: filename,
+      #   snippet: snippets
+      # )
 
       def app : String
         # TODO: Needs to check for crystal-lang too
