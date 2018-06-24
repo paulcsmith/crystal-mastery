@@ -24,14 +24,13 @@ module Lucky::Exceptions
       def initialize(@raw_frame, @index)
       end
 
-      # TODO: Rename to snippets
-      def snippet : Array(Tuple(Int32, String, Bool))
+      def snippets : Array(Tuple(Int32, String, Bool))
         snippets = [] of Tuple(Int32, String, Bool)
         if File.exists?(file)
           lines = File.read_lines(file)
           lines.each_with_index do |code, codeindex|
-            if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
-              highlight = (codeindex + 1 == linenumber) ? true : false
+            if (codeindex + 1) <= (line + 5) && (codeindex + 1) >= (line - 5)
+              highlight = (codeindex + 1 == line) ? true : false
               snippets << {codeindex + 1, code, highlight}
             end
           end
@@ -51,46 +50,13 @@ module Lucky::Exceptions
         file.split('/').last
       end
 
-      def line
-        linenumber
-      end
-
-      private def linenumber : Int32
+      def line : Int32
         raw_frame[2].to_i
       end
 
       def args
-        linemsg
+        "#{file}:#{line}#{raw_frame[3]}"
       end
-
-      private def linemsg
-        "#{file}:#{linenumber}#{raw_frame[3]}"
-      end
-
-      # snippets = [] of Tuple(Int32, String, Bool)
-      # file = frame[1]
-      # filename = file.split('/').last
-      # linenumber = frame[2].to_i
-      # linemsg = "#{file}:#{linenumber}#{frame[3]}"
-      # if File.exists?(file)
-      #   lines = File.read_lines(file)
-      #   lines.each_with_index do |code, codeindex|
-      #     if (codeindex + 1) <= (linenumber + 5) && (codeindex + 1) >= (linenumber - 5)
-      #       highlight = (codeindex + 1 == linenumber) ? true : false
-      #       snippets << {codeindex + 1, code, highlight}
-      #     end
-      #   end
-      # end
-      #
-      # generated_frames << Frame.new(
-      #   raw_frame: frame,
-      #   index: index,
-      #   file: file,
-      #   args: linemsg,
-      #   line: linenumber,
-      #   info: filename,
-      #   snippet: snippets
-      # )
 
       def app : String
         # TODO: Needs to check for crystal-lang too
