@@ -1,6 +1,6 @@
 require "ecr"
 
-struct Lucky::ExceptionPage::Frame
+struct ExceptionPage::Frame
   property index : Int32, raw_frame : Regex::MatchData
 
   def initialize(@raw_frame, @index)

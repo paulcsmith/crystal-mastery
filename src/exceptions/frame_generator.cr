@@ -1,6 +1,6 @@
 require "ecr"
 
-class Lucky::ExceptionPage::FrameGenerator
+class ExceptionPage::FrameGenerator
   def self.generate_frames(message)
     generated_frames = [] of Frame
     if raw_frames = message.scan(/\s([^\s\:]+):(\d+)([^\n]+)/)
