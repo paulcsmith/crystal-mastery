@@ -12,6 +12,9 @@ abstract class ExceptionPage
   @frames = [] of Frame
   @title : String
 
+  abstract def logo_uri
+  abstract def styles : Styles
+
   def initialize(context : HTTP::Server::Context, @message, @title, @frames)
     @params = context.request.query_params.to_h
     @headers = context.response.headers.to_h
