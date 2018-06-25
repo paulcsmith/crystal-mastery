@@ -24,7 +24,7 @@ class CustomErrorHandler
     context.response.reset
     context.response.status_code = 500
     context.response.content_type = "text/html"
-    context.response.print Lucky::Exceptions::ExceptionPageClient.new(context, error).to_s
+    context.response.print Lucky::ExceptionPageClient.new(context, error).to_s
     context
   end
 

@@ -1,6 +1,6 @@
 require "ecr"
 
-module Lucky::Exceptions
+module Lucky
   class ExceptionPage
     class FrameGenerator
       def self.generate_frames(message)
@@ -10,11 +10,8 @@ module Lucky::Exceptions
             generated_frames << Frame.new(raw_frame: frame, index: index)
           end
         end
-        if self.class.name == "ExceptionPageServer"
-          generated_frames.reverse
-        else
-          generated_frames
-        end
+
+        generated_frames
       end
     end
 
