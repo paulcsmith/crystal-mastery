@@ -21,8 +21,8 @@ class SignUps::NewPage < GuestLayout
   end
 
   private def sign_up_fields(f)
-    field(f.email) { |i| email_input i, class: "input", autofocus: "true" }
-    field(f.password) { |i| password_input i, class: "input" }
-    field(f.password_confirmation) { |i| password_input i, class: "input" }
+    mount(Shared::FieldComponent, f.email) { |i| email_input i, class: "input", autofocus: "true" }
+    mount(Shared::FieldComponent, f.password) { |i| password_input i, class: "input" }
+    mount(Shared::FieldComponent, f.password_confirmation) { |i| password_input i, class: "input" }
   end
 end
