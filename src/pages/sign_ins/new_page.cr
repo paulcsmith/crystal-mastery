@@ -23,7 +23,7 @@ class SignIns::NewPage < GuestLayout
   end
 
   private def sign_in_fields(f)
-    field(f.email) { |i| email_input i, class: "input", autofocus: "true" }
-    field(f.password) { |i| password_input i, class: "input" }
+    mount(Shared::FieldComponent, f.email) { |i| email_input i, class: "input", autofocus: "true" }
+    mount(Shared::FieldComponent, f.password) { |i| password_input i, class: "input" }
   end
 end

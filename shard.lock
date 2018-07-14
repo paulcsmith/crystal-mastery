@@ -38,7 +38,7 @@ shards:
 
   lucky:
     github: luckyframework/lucky
-    commit: 8fcc6eeece8e6e64404a5582789c071daac4809e
+    commit: 63b5fd9622bae55ca1ec809c11bef40219dc4f77
 
   lucky_cli:
     github: luckyframework/lucky_cli
@@ -58,7 +58,7 @@ shards:
 
   lucky_record:
     github: luckyframework/lucky_record
-    version: 0.6.0
+    commit: 189dd6418c3bd6375157ed585e0c099920f3975e
 
   lucky_router:
     github: luckyframework/lucky_router
