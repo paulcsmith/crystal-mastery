@@ -1,0 +1,7 @@
+.list-block {
+  margin: 0;
+
+  > li {
+    margin: $size-1 0;
+  }
+}
