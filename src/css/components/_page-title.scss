@@ -1,3 +1,5 @@
+$image-size: 36px;
+
 .page-title {
   @include type-setting(2);
   margin: 0;
@@ -5,7 +7,18 @@
   color: $heading-color;
   display: flex;
 
+  .image {
+    display: inline-block;
+    height: $image-size;
+    width: $image-size;
+    margin-left: $size-2;
+  }
+
   &.-indented {
     margin-left: $size0;
+  }
+
+  &.-pushed-down {
+    margin-top: $size1;
   }
 }
