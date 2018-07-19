@@ -50,7 +50,7 @@ class Episodes::ShowPage < MainLayout
   def render_comment_form(f)
     h2 "Leave a comment", class: "section-title -pushed-down"
     form_for Episodes::Comments::Create.with(@episode) do
-      field(f.body, hide_label: true) { |i| textarea i, class: "textarea", autofocus: "true" }
+      field(f.body, hide_label: true) { |i| textarea i, class: "textarea" }
       submit "Post Comment", class: "btn-action"
     end
   end
