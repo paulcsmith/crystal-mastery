@@ -8,13 +8,29 @@ shards:
     github: kostya/blank
     version: 0.1.0
 
+  callback:
+    github: mosop/callback
+    version: 0.6.3
+
   carbon:
     github: luckyframework/carbon
     version: 0.1.0
 
+  cli:
+    github: amberframework/cli
+    version: 0.7.0
+
+  cry:
+    github: paulcsmith/cry
+    commit: 9a10862b33507c8f16adc23e80a2bf822de953cf
+
   db:
     github: crystal-lang/crystal-db
     version: 0.5.0
+
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.1
 
   habitat:
     github: luckyframework/habitat
@@ -22,7 +38,7 @@ shards:
 
   lucky:
     github: luckyframework/lucky
-    version: 0.11.0
+    commit: 8fcc6eeece8e6e64404a5582789c071daac4809e
 
   lucky_cli:
     github: luckyframework/lucky_cli
@@ -46,7 +62,11 @@ shards:
 
   lucky_router:
     github: luckyframework/lucky_router
-    version: 0.2.0
+    version: 0.2.1
+
+  optarg:
+    github: mosop/optarg
+    version: 0.5.8
 
   pg:
     github: will/crystal-pg
@@ -59,6 +79,10 @@ shards:
   shell-table:
     github: jwaldrip/shell-table.cr
     version: 0.9.2
+
+  string_inflection:
+    github: mosop/string_inflection
+    version: 0.2.1
 
   teeplate:
     github: mosop/teeplate

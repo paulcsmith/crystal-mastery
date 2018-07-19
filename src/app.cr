@@ -23,6 +23,7 @@ class App
 
   def initialize
     @server = HTTP::Server.new([
+      Lucky::ForceSSLHandler.new,
       Lucky::HttpMethodOverrideHandler.new,
       Lucky::LogHandler.new,
       Lucky::SessionHandler.new,
