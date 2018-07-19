@@ -17,7 +17,9 @@ class Episodes::ShowPage < MainLayout
         "mozallowfullscreen": "true",
         "webkitAllowFullScreen": "true"
     end
-    para @episode.description, class: "page-summary"
+    para class: "page-summary" do
+      simple_format @episode.description
+    end
     delete_button
     render_comments_section
   end
