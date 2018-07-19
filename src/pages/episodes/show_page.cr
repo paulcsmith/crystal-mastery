@@ -9,7 +9,14 @@ class Episodes::ShowPage < MainLayout
   def content
     published_at
     h1 @episode.title, class: "page-title"
-    video src: @episode.video_url, controls: "true"
+    div class: "screencast-block" do
+      tag "iframe",
+        src: @episode.video_url,
+        frameborder: "0",
+        "allowFullScreen": "true",
+        "mozallowfullscreen": "true",
+        "webkitAllowFullScreen": "true"
+    end
     para @episode.description, class: "page-summary"
     delete_button
     render_comments_section

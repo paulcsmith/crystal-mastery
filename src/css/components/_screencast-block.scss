@@ -1,0 +1,15 @@
+.screencast-block {
+  position: relative;
+  padding-bottom: 62.5%;
+  overflow: hidden;
+}
+
+.screencast-block iframe,
+.screencast-block object,
+.screencast-block embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
