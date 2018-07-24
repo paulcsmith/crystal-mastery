@@ -9,6 +9,9 @@ class Episodes::IndexPage < MainLayout
     render_episodes
     render_coming_soon_list
     render_stay_up_to_date
+    div id: "app" do
+      text "{{message}}"
+    end
   end
 
   def render_episodes

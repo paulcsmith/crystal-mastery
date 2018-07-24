@@ -14,7 +14,6 @@ abstract class GuestLayout
         div class: "content-wrapper" do
           content
         end
-        js_link asset("js/app.js")
       end
     end
   end
