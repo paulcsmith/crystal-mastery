@@ -16,6 +16,7 @@ require "./components/base_component"
 require "./components/**"
 require "./pages/mixins/**"
 require "./pages/**"
+require "./features/**"
 require "../config/env"
 require "../config/**"
 

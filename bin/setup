@@ -23,7 +23,7 @@ printf "\n▸ Compiling assets\n"
 yarn dev | indent
 
 printf "\n▸ Installing shards\n"
-crystal deps | indent
+shards install | indent
 
 printf "\n▸ Checking that a process runner is installed\n"
 # Only if this isn't CI

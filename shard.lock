@@ -34,11 +34,11 @@ shards:
 
   habitat:
     github: luckyframework/habitat
-    version: 0.3.0
+    version: 0.4.0
 
   lucky:
     github: luckyframework/lucky
-    commit: 63b5fd9622bae55ca1ec809c11bef40219dc4f77
+    commit: 6e79ccb93d4c3d451181700d3af665a102144796
 
   lucky_cli:
     github: luckyframework/lucky_cli
@@ -58,7 +58,7 @@ shards:
 
   lucky_record:
     github: luckyframework/lucky_record
-    commit: 189dd6418c3bd6375157ed585e0c099920f3975e
+    commit: e7e5c5f9bbe5de0dfa27cc0e5da28b972fafd10c
 
   lucky_router:
     github: luckyframework/lucky_router
@@ -77,8 +77,8 @@ shards:
     commit: e01b0fbd7dda6179f44be73e1850d05977b774ba
 
   shell-table:
-    github: jwaldrip/shell-table.cr
-    version: 0.9.2
+    github: luckyframework/shell-table.cr
+    commit: 078a04ea58ead5203bb435a3b5fff448ddabaeea
 
   string_inflection:
     github: mosop/string_inflection
