@@ -28,8 +28,6 @@ class Episodes::IndexPage < MainLayout
   def render_coming_soon_list
     h1 "Coming Soon", class: "page-title -indented -pushed-down"
     ul class: "list-block" do
-      li "Intro to classes and modules"
-      li "Abstract modules and classes"
       li "Handling Nil"
       li "Preventing bugs with types"
       li "Intro to macros"
