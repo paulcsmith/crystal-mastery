@@ -8,7 +8,7 @@ targets:
   crystal-mastery:
     main: src/crystal_mastery.cr
 
-crystal: 0.24.2
+crystal: 0.26.1
 
 dependencies:
   lucky:

@@ -1,4 +1,4 @@
-Lucky::Server.configure do
+Lucky::Server.configure do |settings|
   if Lucky::Env.production?
     settings.secret_key_base = secret_key_from_env
     settings.host = "0.0.0.0"
